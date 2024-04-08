@@ -12,7 +12,5 @@ public interface VoluntarioService {
 
     VoluntarioEntity save(VoluntarioEntity voluntario);
 
-    VoluntarioEntity update(Long id, VoluntarioEntity voluntario);
-
     void delete(Long id);
 }

@@ -1,18 +1,18 @@
 package com.campuslands.ong.repositories.entities;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
@@ -21,32 +21,25 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "socios")
+@Table(name = "ciudades")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SocioEntity implements Serializable{
+public class CiudadEntity implements Serializable{
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date fecha_pago;
+    @NotEmpty(message = "El nombre no puede estar vacio")
+    private String nombre;
 
-    @Column(nullable = false)
-    @NotEmpty(message = "El numero de cuenta no puede estar vacio")
-    private String numero_cuenta;
-
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_usuario")
-    private UsuarioEntity usuario;
-
-    @ManyToOne
-    @JoinColumn(name = "id_tipo_cuota")
-    private Tipo_CuotaEntity tipo_cuota;
-
-    @ManyToOne
-    @JoinColumn(name = "id_sede")
+    @JsonIgnore
+    @OneToOne(mappedBy = "ciudad", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private SedeEntity sede;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "city", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<RefugioEntity> refugios;
 }

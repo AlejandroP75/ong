@@ -4,17 +4,15 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotEmpty;
@@ -23,12 +21,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "refugios")
+@Table(name = "productos")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class RefugioEntity implements Serializable{
-    
+public class ProductoEntity implements Serializable{
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -36,13 +34,14 @@ public class RefugioEntity implements Serializable{
     @Column(nullable = false)
     @NotEmpty(message = "El nombre no puede estar vacio")
     private String nombre;
-
-    @JsonIgnoreProperties(value={"refugios", "hibernateLazyInitializer", "handler"}, allowSetters=true)
-    @JoinColumn(name = "id_ciudad")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private CiudadEntity ciudad;
+    
+    @NotEmpty(message = "El tipo de producto no puede estar vacio")
+    @Column(nullable = false)
+    @Enumerated(EnumType.ORDINAL)
+    private Tipo_ProductoEnum tipo;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "refugio", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<EnvioEntity> envios;
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Ayuda_MaterialEntity> ayudas_materiales;
+    
 }

@@ -1,13 +1,17 @@
 package com.campuslands.ong.repositories.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
@@ -50,8 +54,23 @@ public class UsuarioEntity {
     @NotEmpty(message = "La contraseña no puede estar vacia")
     private String contraseña;
 
-    @JoinColumn(name = "id_rol")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Tipo_RolEntity tipo_rol;
+    @Column(nullable = false)
+    @NotEmpty(message = "El rol no puede estar vacio")
+    @Enumerated(EnumType.ORDINAL)
+    private Tipo_RolEnum tipo_rol;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private VoluntarioEntity voluntario;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private SocioEntity socio;
+
+    @JsonIgnore
+    @OneToOne(mappedBy = "director", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private SedeEntity director;
+
+
 
 }

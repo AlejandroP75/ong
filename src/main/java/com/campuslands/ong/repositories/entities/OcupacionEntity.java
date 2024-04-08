@@ -2,6 +2,8 @@ package com.campuslands.ong.repositories.entities;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -17,7 +19,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "ocupacion")
+@Table(name = "ocupaciones")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -31,9 +33,11 @@ public class OcupacionEntity{
     @Column(nullable = false)
     private String nombre;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "ocupacion", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Voluntario_HEntity> voluntarios;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "ocupacion", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Solicitud_HEntity> solicitudes;
 }

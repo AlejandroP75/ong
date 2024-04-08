@@ -41,7 +41,7 @@ public class ProductoEntity implements Serializable{
     private Tipo_ProductoEnum tipo;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Ayuda_MaterialEntity> ayudas_materiales;
-    
+
 }

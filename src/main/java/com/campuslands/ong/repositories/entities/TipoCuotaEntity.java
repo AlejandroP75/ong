@@ -20,11 +20,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "tipos_couta")
+@Table(name = "tipos_cuota")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Tipo_CuotaEntity implements Serializable{
+public class TipoCuotaEntity implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,6 +39,6 @@ public class Tipo_CuotaEntity implements Serializable{
     private Float precio;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "quotaType", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "tipoCuota", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SocioEntity> socios;
 }

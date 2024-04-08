@@ -15,7 +15,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -41,8 +40,8 @@ public class UsuarioEntity implements Serializable{
     private String apellido;
 
     @Column(nullable = false, unique = true)
-    @Email(message = "El email no es valido")
-    private Email email;
+    @NotEmpty(message = "El email no es valido")
+    private String email;
 
     @Column(nullable = false)
     @NotEmpty(message = "El telefono no puede estar vacio")
@@ -62,7 +61,7 @@ public class UsuarioEntity implements Serializable{
     private Tipo_RolEnum tipo_rol;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private VoluntarioEntity voluntario;
 
     @JsonIgnore

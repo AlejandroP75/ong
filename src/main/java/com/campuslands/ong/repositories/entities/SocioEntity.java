@@ -43,8 +43,8 @@ public class SocioEntity implements Serializable{
     private UsuarioEntity usuario;
 
     @ManyToOne
-    @JoinColumn(name = "id_tipo_cuota")
-    private Tipo_CuotaEntity tipo_cuota;
+    @JoinColumn(name = "id_tipoCuota")
+    private TipoCuotaEntity tipoCuota;
 
     @ManyToOne
     @JoinColumn(name = "id_sede")

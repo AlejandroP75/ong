@@ -41,6 +41,6 @@ public class Voluntario_HEntity implements Serializable {
     @Column(nullable = false)
     private int num_misiones;
 
-    @ManyToMany(mappedBy = "voluntarios", cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "voluntariosH", cascade = CascadeType.ALL)
     private List<Solicitud_HEntity> solicitudes_H;
 }

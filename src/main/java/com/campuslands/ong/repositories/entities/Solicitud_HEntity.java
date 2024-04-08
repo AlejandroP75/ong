@@ -44,5 +44,5 @@ public class Solicitud_HEntity implements Serializable{
     
     @ManyToMany
     @JoinTable(name = "solicitud_voluntarioH", joinColumns = @JoinColumn(name = "id_solicitud"), inverseJoinColumns = @JoinColumn(name = "id_voluntario_H"))
-    private List<VoluntarioEntity> voluntarios;
+    private List<Voluntario_HEntity> voluntariosH;
 }

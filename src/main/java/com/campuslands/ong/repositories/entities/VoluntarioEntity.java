@@ -41,6 +41,6 @@ public class VoluntarioEntity implements Serializable{
     private UsuarioEntity usuario;
 
     @JsonIgnore
-    @OneToOne(mappedBy = "voluntarios", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "voluntario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private Voluntario_HEntity voluntario_H;
 }

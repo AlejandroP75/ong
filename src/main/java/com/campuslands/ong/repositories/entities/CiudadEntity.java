@@ -33,7 +33,7 @@ public class CiudadEntity implements Serializable{
     private Long id;
 
     @Column(nullable = false)
-    @Schema(name = "nombre", required = true, example = "Diego", defaultValue = "Diego", description = "Representa el nombre del cliente")
+    @Schema(name = "nombre", required = true, example = "Bogota", defaultValue = "Bogota", description = "Nombre de la ciudad")
     @NotEmpty(message = "El nombre no puede estar vacio")
     private String nombre;
 

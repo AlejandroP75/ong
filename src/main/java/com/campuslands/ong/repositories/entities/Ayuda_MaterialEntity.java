@@ -2,6 +2,7 @@ package com.campuslands.ong.repositories.entities;
 
 import java.io.Serializable;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,6 +28,7 @@ public class Ayuda_MaterialEntity implements Serializable{
     private Long id;
 
     @Column(nullable = false)
+    @Schema(name = "cantidad", required = true, example = "10", defaultValue = "0", description = "Cantidad del producto, sea kilogramos o cantidad de medicamento")
     @NotEmpty(message = "La cantidad no puede estar vacia")
     private int cantidad;
 

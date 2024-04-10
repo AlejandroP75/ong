@@ -4,6 +4,7 @@ package com.campuslands.ong.repositories.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -31,6 +32,7 @@ public class Solicitud_HEntity implements Serializable{
     private Long id;
 
     @Column(nullable = false)
+    @Schema(name = "cantidad", required = true, example = "10", defaultValue = "0", description = "Cantidad de voluntarios humanitarios")
     @NotEmpty(message = "La cantidad no puede estar vacia")
     private int cantidad;
 

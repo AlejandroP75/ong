@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,6 +37,7 @@ public class EnvioEntity implements Serializable {
     private Long id;
 
     @Column(name="fecha_inicio")
+    @Schema(name = "fecha inicio", required = true, example = "yyyy/mm/dd", defaultValue = "yyyy/mm/dd", description = "Fecha de inicio del envio")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date fecha_inicio;
 

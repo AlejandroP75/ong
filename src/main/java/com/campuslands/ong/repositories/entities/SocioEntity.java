@@ -6,6 +6,7 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
@@ -32,10 +33,12 @@ public class SocioEntity implements Serializable{
     private Long id;
 
     @Column(nullable = false)
+    @Schema(name = "fecha_pago", required = true, example = "yyyy/mm/dd", defaultValue = "yyyy/mm/dd", description = "Fecha de pago de la cuota anual")
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date fecha_pago;
 
     @Column(nullable = false)
+    @Schema(name = "numero de cuenta", required = true, example = "123456789", defaultValue = "xxxxxxxxx", description = "Numero de cuenta del socio")
     @NotEmpty(message = "El numero de cuenta no puede estar vacio")
     private String numero_cuenta;
 

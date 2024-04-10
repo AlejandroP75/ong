@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -31,10 +32,12 @@ public class TipoCuotaEntity implements Serializable{
     private Long id;
 
     @Column(nullable = false)
+    @Schema(name = "nombre", required = true, example = "minima", defaultValue = "minima", description = "Nombre de la cuota a definir")
     @NotEmpty(message = "El nombre de la cuota no puede ser vacio")
     private String nombre;
 
     @Column(nullable = false)
+    @Schema(name = "precio", required = true, example = "10.0", defaultValue = "0.0", description = "Precio de la cuota a definir")
     @NotEmpty(message = "El precio de la cuota no puede ser vacio")
     private Float precio;
 

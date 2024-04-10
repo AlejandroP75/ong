@@ -16,8 +16,13 @@ import com.campuslands.ong.dto.SocioDTO;
 import com.campuslands.ong.repositories.entities.SocioEntity;
 import com.campuslands.ong.services.SocioService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 
+@Tag(name = "Socios API", description = "Este API tiene toda la funcionalidad de los socios")
 @RestController
 @RequestMapping("/socios")
 @AllArgsConstructor
@@ -25,16 +30,25 @@ public class SocioController {
     
     private SocioService socioService;
 
+    @Operation(description = "Retorna todos los socios")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Si sirve")})
+    @ApiResponse(responseCode = "500", description = "Internal error")
     @GetMapping("/")
     public ResponseEntity<List<SocioDTO>> findAll() {
         return ResponseEntity.ok(socioService.findAll());
     }
 
+    @Operation(description = "Retorna todos los socios para el informe")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Si sirve")})
+    @ApiResponse(responseCode = "500", description = "Internal error")
     @GetMapping("/informe")
     public ResponseEntity<List<SocioEntity>> socios() {
         return ResponseEntity.ok(socioService.informe());
     }
 
+    @Operation(description = "Retorna el socio del id seleccionado")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Si sirve")})
+    @ApiResponse(responseCode = "500", description = "Internal error")
     @GetMapping("/{id}")
     public ResponseEntity<Object> findById(@PathVariable Long id) {
         try {
@@ -44,6 +58,9 @@ public class SocioController {
         }  
     }
 
+    @Operation(description = "Permite crear un socio")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Si sirve")})
+    @ApiResponse(responseCode = "500", description = "Internal error")
     @PostMapping("/")
     public ResponseEntity<Object> save(@RequestBody SocioDTO socio){
         try{
@@ -53,6 +70,9 @@ public class SocioController {
         }
     }
 
+    @Operation(description = "Permite actualizar un socio")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Si sirve")})
+    @ApiResponse(responseCode = "500", description = "Internal error")
     @PutMapping("/{id}")
     public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody SocioDTO socio){
         try {
@@ -63,6 +83,9 @@ public class SocioController {
         }
     }
 
+    @Operation(description = "Borra el socio del id seleccionado")
+    @ApiResponses(value = {@ApiResponse(responseCode = "200", description = "Si sirve")})
+    @ApiResponse(responseCode = "500", description = "Internal error")
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> delete(@PathVariable Long id){
         try {

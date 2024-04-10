@@ -6,6 +6,7 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,6 +36,7 @@ public class SedeEntity implements Serializable{
     private Long id;
 
     @Column(nullable = false)
+    @Schema(name = "direccion", required = true, example = "Carrera 24 · 35 - 30", defaultValue = "Calle xx", description = "Direccion del refugio")
     @NotEmpty(message = "La direccion no puede estar vacia")
     private String direccion;
 
@@ -60,8 +62,4 @@ public class SedeEntity implements Serializable{
     @ManyToMany(mappedBy = "sedes", cascade = CascadeType.ALL)
     private List<EnvioEntity> envios;
 
-    public void setRefugio(RefugioEntity refugioEntity) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setRefugio'");
-    }
 }

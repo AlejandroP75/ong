@@ -33,6 +33,13 @@ public class SedeServiceImpl implements SedeService{
 
     @Override
     @Transactional(readOnly = true)
+    public List<SedeEntity> informe() {
+        List<SedeEntity> sedeEntities = (List<SedeEntity>) sedeRepository.findAll();
+        return sedeEntities;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public SedeDTO findById(Long id) {
         SedeEntity sedeEntity = sedeRepository.findById(id)
                                               .orElseThrow(() -> new RuntimeException("Sede not found with id: " + id));

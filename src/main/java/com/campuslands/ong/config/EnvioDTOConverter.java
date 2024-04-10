@@ -33,7 +33,7 @@ public class EnvioDTOConverter {
                 .collect(Collectors.toList());
             envioDTO.setAyudaMaterialIds(ayudaMaterialIds);
         }
-        if (envioEntity.getSedes() != null) {
+        if (envioEntity.getSedes() != null) { 
             List<Long> sedesIds = envioEntity.getSedes()
                 .stream()
                 .map(sede -> sede.getId())

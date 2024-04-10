@@ -59,4 +59,9 @@ public class SedeEntity implements Serializable{
     @JsonIgnore
     @ManyToMany(mappedBy = "sedes", cascade = CascadeType.ALL)
     private List<EnvioEntity> envios;
+
+    public void setRefugio(RefugioEntity refugioEntity) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setRefugio'");
+    }
 }

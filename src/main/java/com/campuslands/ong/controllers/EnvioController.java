@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.campuslands.ong.dto.EnvioDTO;
+import com.campuslands.ong.repositories.entities.EnvioEntity;
 import com.campuslands.ong.services.EnvioService;
 
 import lombok.AllArgsConstructor;
@@ -27,6 +28,11 @@ public class EnvioController {
     @GetMapping("/")
     public ResponseEntity<List<EnvioDTO>> findAll() {
         return ResponseEntity.ok(envioService.findAll());
+    }
+
+    @GetMapping("/informe")
+    public ResponseEntity<List<EnvioEntity>> socios() {
+        return ResponseEntity.ok(envioService.informe());
     }
 
     @GetMapping("/{id}")

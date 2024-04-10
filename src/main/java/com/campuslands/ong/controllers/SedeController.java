@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.campuslands.ong.dto.SedeDTO;
+import com.campuslands.ong.repositories.entities.SedeEntity;
 import com.campuslands.ong.services.SedeService;
 
 import lombok.AllArgsConstructor;
@@ -27,6 +28,11 @@ public class SedeController {
     @GetMapping("/")
     public ResponseEntity<List<SedeDTO>> findAll() {
         return ResponseEntity.ok(sedeService.findAll());
+    }
+
+    @GetMapping("/informe")
+    public ResponseEntity<List<SedeEntity>> socios() {
+        return ResponseEntity.ok(sedeService.informe());
     }
 
     @GetMapping("/{id}")

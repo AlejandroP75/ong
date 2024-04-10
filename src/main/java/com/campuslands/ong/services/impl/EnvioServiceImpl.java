@@ -33,6 +33,13 @@ public class EnvioServiceImpl implements EnvioService{
 
     @Override
     @Transactional(readOnly = true)
+    public List<EnvioEntity> informe() {
+        List<EnvioEntity> envioEntities = (List<EnvioEntity>) envioRepository.findAll();
+        return envioEntities;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public EnvioDTO findById(Long id) {
         EnvioEntity envioEntity = envioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Envio not found with id: " + id));

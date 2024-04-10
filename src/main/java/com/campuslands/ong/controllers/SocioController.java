@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.campuslands.ong.dto.SocioDTO;
+import com.campuslands.ong.repositories.entities.SocioEntity;
 import com.campuslands.ong.services.SocioService;
 
 import lombok.AllArgsConstructor;
@@ -27,6 +28,11 @@ public class SocioController {
     @GetMapping("/")
     public ResponseEntity<List<SocioDTO>> findAll() {
         return ResponseEntity.ok(socioService.findAll());
+    }
+
+    @GetMapping("/informe")
+    public ResponseEntity<List<SocioEntity>> socios() {
+        return ResponseEntity.ok(socioService.informe());
     }
 
     @GetMapping("/{id}")

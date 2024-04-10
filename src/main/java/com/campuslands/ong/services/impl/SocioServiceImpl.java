@@ -35,6 +35,13 @@ public class SocioServiceImpl implements SocioService{
 
     @Override
     @Transactional(readOnly = true)
+    public List<SocioEntity> informe() {
+        List<SocioEntity> socioEntities = (List<SocioEntity>) socioRepository.findAll();
+        return socioEntities;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public SocioDTO findById(Long id) {
         SocioEntity socioEntity = socioRepository.findById(id)
                                                   .orElseThrow(() -> new RuntimeException("Socio not found with id: " + id));

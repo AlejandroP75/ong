@@ -37,6 +37,13 @@ public class VoluntarioServiceImpl implements VoluntarioService {
 
     @Override
     @Transactional(readOnly = true)
+    public List<VoluntarioEntity> informe() {
+        List<VoluntarioEntity> voluntarioEntities = (List<VoluntarioEntity>) voluntarioRepository.findAll();
+        return voluntarioEntities;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public VoluntarioDTO findById(Long id) {
         VoluntarioEntity voluntarioEntity = voluntarioRepository.findById(id)
                                                                 .orElseThrow(() -> new RuntimeException("Voluntario not found with id: " + id));

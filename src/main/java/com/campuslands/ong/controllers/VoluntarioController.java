@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.campuslands.ong.dto.VoluntarioDTO;
+import com.campuslands.ong.repositories.entities.VoluntarioEntity;
 import com.campuslands.ong.services.VoluntarioService;
 
 import lombok.AllArgsConstructor;
@@ -26,6 +27,11 @@ public class VoluntarioController {
     @GetMapping("/")
     public ResponseEntity<List<VoluntarioDTO>> findAll() {
         return ResponseEntity.ok(voluntarioService.findAll());
+    }
+
+    @GetMapping("/informe")
+    public ResponseEntity<List<VoluntarioEntity>> socios() {
+        return ResponseEntity.ok(voluntarioService.informe());
     }
 
     @GetMapping("/{id}")

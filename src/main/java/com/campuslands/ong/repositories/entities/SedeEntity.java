@@ -40,7 +40,7 @@ public class SedeEntity implements Serializable{
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_ciudad")
-    @JsonIgnore
+    @JsonIgnore 
     private CiudadEntity ciudad;
 
     @JsonIgnoreProperties(value={"sedes", "hibernateLazyInitializer", "handler"}, allowSetters=true)

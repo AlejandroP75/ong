@@ -31,7 +31,7 @@ public class VoluntarioEntity implements Serializable{
     private Long id;
 
     @JsonIgnoreProperties(value={"voluntarios", "hibernateLazyInitializer", "handler"}, allowSetters=true)
-    @JoinColumn(name = "id_campus")
+    @JoinColumn(name = "id_sede")
     @ManyToOne()
     private SedeEntity sede;
 

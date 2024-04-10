@@ -1,0 +1,163 @@
+INSERT INTO productos (nombre, tipo) VALUES ('Manzana', 0);
+INSERT INTO productos (nombre, tipo) VALUES ('Pan Integral', 0);
+INSERT INTO productos (nombre, tipo) VALUES ('Queso Feta', 0);
+INSERT INTO productos (nombre, tipo) VALUES ('Zanahoria', 0);
+INSERT INTO productos (nombre, tipo) VALUES ('Arroz Basmati', 0);
+INSERT INTO productos (nombre, tipo) VALUES ('Ibuprofeno 600mg', 1);
+INSERT INTO productos (nombre, tipo) VALUES ('Paracetamol 500mg', 1);
+INSERT INTO productos (nombre, tipo) VALUES ('Amoxicilina 500mg', 1);
+INSERT INTO productos (nombre, tipo) VALUES ('Loratadina 10mg', 1);
+INSERT INTO productos (nombre, tipo) VALUES ('Metformina 850mg', 1);
+
+
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Garcia', '12345678', 'contra1234', 'garcia@mail.com', 'Luis', '04121234567', 0);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Perez', '87654321', 'clave5678', 'perez@mail.com', 'Ana', '04247654321', 0);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Mendez', '23456789', 'pass2345', 'mendez@mail.com', 'Carlos', '04123456789', 1);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Fernandez', '34567890', 'seguro6789', 'fernandez@mail.com', 'Daniela', '04127654321', 1);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Campos', '45678901', 'miContraseña', 'campos@mail.com', 'Roberto', '04245678901', 1);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Lopez', '56789012', '12345abc', 'lopez@mail.com', 'Sofia', '04125678901', 1);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Martinez', '67890123', 'abcde12345', 'martinez@mail.com', 'Eduardo', '04256789012', 1);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Gonzalez', '78901234', 'password123', 'gonzalez@mail.com', 'Yolanda', '04127890123', 1);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Rivera', '89012345', 'miPass7890', 'rivera@mail.com', 'Jorge', '04258901234', 1);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Dominguez', '90123456', 'claveDeAcceso', 'dominguez@mail.com', 'Carmen', '04129012345', 1);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Rodriguez', '10234567', '123password', 'rodriguez@mail.com', 'Fernando', '04121034567', 2);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Jimenez', '11234568', 'pass4567', 'jimenez@mail.com', 'Patricia', '04241123456', 2);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Ruiz', '12234569', 'miSuperClave', 'ruiz@mail.com', 'Ricardo', '04121234569', 2);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Moreno', '13234560', 'claveDura', 'moreno@mail.com', 'Beatriz', '04241323456', 2);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Morales', '14234561', 'passwordFuerte', 'morales@mail.com', 'Julio', '04121423456', 2);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Navarro', '15234562', '1234abcd', 'navarro@mail.com', 'Lucia', '04241523456', 2);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Torres', '16234563', 'segura1234', 'torres@mail.com', 'Miguel', '04121623456', 2);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Romero', '17234564', 'miClaveSegura', 'romero@mail.com', 'Silvia', '04241723456', 2);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Soto', '18234565', 'clave2024', 'soto@mail.com', 'Gabriel', '04121823456', 2);
+INSERT INTO usuarios (apellido, cedula, contraseña, email, nombre, telefono, tipo_rol) VALUES ('Ortiz', '19234566', 'password2024', 'ortiz@mail.com', 'Laura', '04241923456', 2);
+
+
+INSERT INTO ciudades (nombre) VALUES ('Nueva York');
+INSERT INTO ciudades (nombre) VALUES ('París');
+INSERT INTO ciudades (nombre) VALUES ('Tokio');
+INSERT INTO ciudades (nombre) VALUES ('Londres');
+INSERT INTO ciudades (nombre) VALUES ('Dubái');
+INSERT INTO ciudades (nombre) VALUES ('Roma');
+INSERT INTO ciudades (nombre) VALUES ('Berlín');
+INSERT INTO ciudades (nombre) VALUES ('Sídney');
+INSERT INTO ciudades (nombre) VALUES ('Barcelona');
+INSERT INTO ciudades (nombre) VALUES ('Ámsterdam');
+
+INSERT INTO refugios (id_ciudad, nombre) VALUES (1, 'Refugio Esperanza Nueva York');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (1, 'Hogar de Luz Nueva York');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (2, 'Casa Solidaria París');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (2, 'Amigos de París');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (3, 'Albergue Tokio Esperanza');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (3, 'Refugio del Sol Naciente');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (4, 'Londres Refugio Seguro');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (4, 'Corazón de Londres');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (5, 'Dubái Casa de Paz');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (5, 'Esperanza Dubái');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (6, 'Refugio Romano');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (6, 'Hogar Eterna Ciudad');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (7, 'Berlín Ayuda Comunitaria');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (7, 'Solidaridad en Berlín');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (8, 'Refugio de la Bahía Sídney');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (8, 'Sídney por la Humanidad');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (9, 'Amor de Barcelona');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (9, 'Cataluña Solidaria');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (10, 'Corazón de Ámsterdam');
+INSERT INTO refugios (id_ciudad, nombre) VALUES (10, 'Refugio Tulipán');
+
+INSERT INTO sedes (direccion, id_ciudad, id_director) VALUES ('123 Calle Principal, Nueva York', 1, 3);
+INSERT INTO sedes (direccion, id_ciudad, id_director) VALUES ('456 Avenida París, París', 2, 4);
+INSERT INTO sedes (direccion, id_ciudad, id_director) VALUES ('789 Calle Sakura, Tokio', 3, 5);
+INSERT INTO sedes (direccion, id_ciudad, id_director) VALUES ('101 Callejón Londres, Londres', 4, 6);
+INSERT INTO sedes (direccion, id_ciudad, id_director) VALUES ('102 Avenida Dubái, Dubái', 5, 7);
+INSERT INTO sedes (direccion, id_ciudad, id_director) VALUES ('103 Vía Roma, Roma', 6, 8);
+INSERT INTO sedes (direccion, id_ciudad, id_director) VALUES ('104 Calle Berlín, Berlín', 7, 9);
+INSERT INTO sedes (direccion, id_ciudad, id_director) VALUES ('105 Puerto Sídney, Sídney', 8, 10);
+
+INSERT INTO tipos_cuotas (nombre, precio) VALUES ('minima', 10);
+INSERT INTO tipos_cuotas (nombre, precio) VALUES ('media', 20);
+INSERT INTO tipos_cuotas (nombre, precio) VALUES ('maxima', 30);
+
+INSERT INTO socios (fecha_pago, numero_cuenta, id_sede, id_tipo_cuota, id_usuario) VALUES ('2024-04-01', '123456789', 1, 1, 11);
+INSERT INTO socios (fecha_pago, numero_cuenta, id_sede, id_tipo_cuota, id_usuario) VALUES ('2024-04-02', '987654321', 2, 2, 12);
+INSERT INTO socios (fecha_pago, numero_cuenta, id_sede, id_tipo_cuota, id_usuario) VALUES ('2024-04-03', '456789123', 3, 3, 13);
+INSERT INTO socios (fecha_pago, numero_cuenta, id_sede, id_tipo_cuota, id_usuario) VALUES ('2024-04-04', '321654987', 4, 1, 14);
+INSERT INTO socios (fecha_pago, numero_cuenta, id_sede, id_tipo_cuota, id_usuario) VALUES ('2024-04-05', '789123456', 5, 2, 15);
+
+INSERT INTO voluntarios (id_sede, id_usuario) VALUES (1, 16);
+INSERT INTO voluntarios (id_sede, id_usuario) VALUES (2, 17);
+INSERT INTO voluntarios (id_sede, id_usuario) VALUES (3, 18);
+INSERT INTO voluntarios (id_sede, id_usuario) VALUES (4, 19);
+INSERT INTO voluntarios (id_sede, id_usuario) VALUES (5, 20);
+
+INSERT INTO ocupaciones (nombre) VALUES ('Trabajador Social');
+INSERT INTO ocupaciones (nombre) VALUES ('Psicólogo/a');
+INSERT INTO ocupaciones (nombre) VALUES ('Coordinador/a de Voluntarios');
+INSERT INTO ocupaciones (nombre) VALUES ('Educador/a Social');
+INSERT INTO ocupaciones (nombre) VALUES ('Asistente Legal');
+
+INSERT INTO voluntarios_h (num_misiones, id_ocupacion, id_voluntario) VALUES (3, 1, 1);
+INSERT INTO voluntarios_h (num_misiones, id_ocupacion, id_voluntario) VALUES (2, 2, 2);
+INSERT INTO voluntarios_h (num_misiones, id_ocupacion, id_voluntario) VALUES (4, 3, 3);
+INSERT INTO voluntarios_h (num_misiones, id_ocupacion, id_voluntario) VALUES (1, 4, 4);
+INSERT INTO voluntarios_h (num_misiones, id_ocupacion, id_voluntario) VALUES (5, 5, 5);
+
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-01', 1);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-02', 2);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-03', 3);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-04', 4);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-05', 5);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-06', 6);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-07', 7);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-08', 8);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-09', 9);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-10', 10);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-11', 11);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-12', 12);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-13', 13);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-14', 14);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-15', 15);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-16', 16);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-17', 17);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-18', 18);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-19', 19);
+INSERT INTO envios (fecha_inicio, id_refugio) VALUES ('2024-04-20', 20);
+
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (1, 1);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (2, 2);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (3, 3);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (4, 4);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (5, 5);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (6, 6);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (7, 7);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (8, 8);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (9, 1);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (10, 2);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (11, 3);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (12, 4);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (13, 5);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (14, 6);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (15, 7);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (16, 8);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (17, 1);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (18, 2);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (19, 3);
+INSERT INTO envios_sedes (id_envio, id_sede) VALUES (20, 4);
+
+INSERT INTO ayudas_materiales (cantidad, id_producto, id_envio) VALUES (50, 1, 1);   
+INSERT INTO ayudas_materiales (cantidad, id_producto, id_envio) VALUES (30, 2, 2);   
+INSERT INTO ayudas_materiales (cantidad, id_producto, id_envio) VALUES (20, 3, 3);    
+INSERT INTO ayudas_materiales (cantidad, id_producto, id_envio) VALUES (40, 4, 4);   
+INSERT INTO ayudas_materiales (cantidad, id_producto, id_envio) VALUES (15, 5, 5);    
+INSERT INTO ayudas_materiales (cantidad, id_producto, id_envio) VALUES (100, 6, 6);  
+INSERT INTO ayudas_materiales (cantidad, id_producto, id_envio) VALUES (50, 7, 7);    
+INSERT INTO ayudas_materiales (cantidad, id_producto, id_envio) VALUES (80, 8, 8);  
+INSERT INTO ayudas_materiales (cantidad, id_producto, id_envio) VALUES (120, 9, 9);  
+INSERT INTO ayudas_materiales (cantidad, id_producto, id_envio) VALUES (70, 10, 10); 
+
+INSERT INTO solicitudes_h (cantidad, id_ocupacion, id_envio) VALUES (3, 1, 1);
+INSERT INTO solicitudes_h (cantidad, id_ocupacion, id_envio) VALUES (2, 2, 1);
+INSERT INTO solicitudes_h (cantidad, id_ocupacion, id_envio) VALUES (1, 3, 1);
+INSERT INTO solicitudes_h (cantidad, id_ocupacion, id_envio) VALUES (2, 2, 2);
+INSERT INTO solicitudes_h (cantidad, id_ocupacion, id_envio) VALUES (1, 4, 2);
+INSERT INTO solicitudes_h (cantidad, id_ocupacion, id_envio) VALUES (4, 3, 3);
+INSERT INTO solicitudes_h (cantidad, id_ocupacion, id_envio) VALUES (2, 5, 3);

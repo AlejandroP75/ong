@@ -54,7 +54,7 @@ public class EnvioEntity implements Serializable {
 
     @JsonIgnoreProperties(value={"envios", "hibernateLazyInitializer", "handler"}, allowSetters=true)
     @ManyToMany
-    @JoinTable(name = "envio_sede", joinColumns = @JoinColumn(name = "id_envio"), inverseJoinColumns = @JoinColumn(name = "id_sede"))
+    @JoinTable(name = "envios_sedes", joinColumns = @JoinColumn(name = "id_envio"), inverseJoinColumns = @JoinColumn(name = "id_sede"))
     private List<SedeEntity> sedes;
     
 }

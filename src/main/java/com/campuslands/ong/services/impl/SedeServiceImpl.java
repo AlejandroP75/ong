@@ -40,6 +40,7 @@ public class SedeServiceImpl implements SedeService{
     }
 
     @Override
+    @Transactional
     public SedeDTO save(SedeDTO sedeDTO) {
         SedeEntity sedeEntity = sedeDTOConverter.convertToEntity(sedeDTO);
         SedeEntity savedSedeEntity = sedeRepository.save(sedeEntity);
@@ -47,6 +48,7 @@ public class SedeServiceImpl implements SedeService{
     }
 
     @Override
+    @Transactional
     public SedeDTO update(Long id, SedeDTO sedeDTO) {
         Optional<SedeEntity> existingSedeOptional = sedeRepository.findById(id);
 

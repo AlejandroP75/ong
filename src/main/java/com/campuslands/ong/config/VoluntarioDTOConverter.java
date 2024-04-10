@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.campuslands.ong.dto.VoluntarioDTO;
+import com.campuslands.ong.repositories.entities.SedeEntity;
+import com.campuslands.ong.repositories.entities.UsuarioEntity;
 import com.campuslands.ong.repositories.entities.VoluntarioEntity;
 
 @Component
@@ -35,7 +37,25 @@ public class VoluntarioDTOConverter {
         if (voluntarioDTO == null) {
             return null;
         }
-
-        return modelMapper.map(voluntarioDTO, VoluntarioEntity.class);
+    
+        VoluntarioEntity voluntarioEntity = modelMapper.map(voluntarioDTO, VoluntarioEntity.class);
+    
+        if (voluntarioDTO.getSedeId() != null) {
+            SedeEntity sedeEntity = new SedeEntity();
+            sedeEntity.setId(voluntarioDTO.getSedeId());
+            voluntarioEntity.setSede(sedeEntity);
+        } else {
+            voluntarioEntity.setSede(null);
+        }
+    
+        if (voluntarioDTO.getUsuarioId() != null) {
+            UsuarioEntity usuarioEntity = new UsuarioEntity();
+            usuarioEntity.setId(voluntarioDTO.getUsuarioId());
+            voluntarioEntity.setUsuario(usuarioEntity);
+        } else {
+            voluntarioEntity.setUsuario(null); 
+        }
+    
+        return voluntarioEntity;
     }
 }

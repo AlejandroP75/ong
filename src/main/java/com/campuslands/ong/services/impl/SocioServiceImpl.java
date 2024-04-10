@@ -1,5 +1,6 @@
 package com.campuslands.ong.services.impl;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -27,8 +28,9 @@ public class SocioServiceImpl implements SocioService{
     public List<SocioDTO> findAll() {
         List<SocioEntity> socioEntities = (List<SocioEntity>) socioRepository.findAll();
         return socioEntities.stream()
-                            .map(socioDTOConverter::convertToDTO)
-                            .collect(Collectors.toList());
+                .sorted(Comparator.comparingLong(socio -> socio.getTipoCuota().getId()))
+                .map(socioDTOConverter::convertToDTO)
+                .collect(Collectors.toList());
     }
 
     @Override

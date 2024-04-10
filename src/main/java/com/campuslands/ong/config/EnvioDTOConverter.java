@@ -45,6 +45,12 @@ public class EnvioDTOConverter {
     }
 
     public EnvioEntity convertToEntity(EnvioDTO envioDTO) {
-        return modelMapper.map(envioDTO, EnvioEntity.class);
+        if (envioDTO == null) {
+            return null;
+        }
+
+        EnvioEntity envioEntity = modelMapper.map(envioDTO, EnvioEntity.class);
+
+        return envioEntity;
     }
 }

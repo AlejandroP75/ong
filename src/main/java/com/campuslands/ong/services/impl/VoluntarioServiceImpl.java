@@ -1,5 +1,6 @@
 package com.campuslands.ong.services.impl;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -28,11 +29,10 @@ public class VoluntarioServiceImpl implements VoluntarioService {
     @Transactional(readOnly = true)
     public List<VoluntarioDTO> findAll() {
         List<VoluntarioEntity> voluntarioEntities = (List<VoluntarioEntity>) voluntarioRepository.findAll();
-        List<VoluntarioDTO> voluntarioDTOs = voluntarioEntities.stream()
-                .map(voluntarioEntity -> voluntarioDTOConverter.convertToDTO(voluntarioEntity))
+        return voluntarioEntities.stream()
+                .sorted(Comparator.comparingLong(voluntario -> voluntario.getId()))
+                .map(voluntarioDTOConverter::convertToDTO)
                 .collect(Collectors.toList());
-    
-        return voluntarioDTOs;
     }
 
     @Override

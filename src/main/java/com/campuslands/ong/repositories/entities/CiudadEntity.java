@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,6 +33,7 @@ public class CiudadEntity implements Serializable{
     private Long id;
 
     @Column(nullable = false)
+    @Schema(name = "nombre", required = true, example = "Diego", defaultValue = "Diego", description = "Representa el nombre del cliente")
     @NotEmpty(message = "El nombre no puede estar vacio")
     private String nombre;
 

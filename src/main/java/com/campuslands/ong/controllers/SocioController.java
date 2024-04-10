@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.campuslands.ong.repositories.entities.SocioEntity;
+import com.campuslands.ong.dto.SocioDTO;
 import com.campuslands.ong.services.SocioService;
 
 import lombok.AllArgsConstructor;
@@ -25,7 +25,7 @@ public class SocioController {
     private SocioService socioService;
 
     @GetMapping("/")
-    public ResponseEntity<List<SocioEntity>> findAll() {
+    public ResponseEntity<List<SocioDTO>> findAll() {
         return ResponseEntity.ok(socioService.findAll());
     }
 
@@ -39,7 +39,7 @@ public class SocioController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Object> save(@RequestBody SocioEntity socio){
+    public ResponseEntity<Object> save(@RequestBody SocioDTO socio){
         try{
             return ResponseEntity.ok(socioService.save(socio));
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class SocioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody SocioEntity socio){
+    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody SocioDTO socio){
         try {
             return ResponseEntity.ok(socioService.update(id, socio));
             

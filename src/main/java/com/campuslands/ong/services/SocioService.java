@@ -2,17 +2,17 @@ package com.campuslands.ong.services;
 
 import java.util.List;
 
-import com.campuslands.ong.repositories.entities.SocioEntity;
+import com.campuslands.ong.dto.SocioDTO;
 
 public interface SocioService {
 
-    List<SocioEntity> findAll();
+    List<SocioDTO> findAll();
 
-    SocioEntity findById(Long id);
+    SocioDTO findById(Long id);
 
-    SocioEntity save(SocioEntity socio);
+    SocioDTO save(SocioDTO socio);
 
-    SocioEntity update(Long id, SocioEntity socio);
+    SocioDTO update(Long id, SocioDTO socio);
 
     void delete(Long id);
 }

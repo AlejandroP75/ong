@@ -2,17 +2,17 @@ package com.campuslands.ong.services;
 
 import java.util.List;
 
-import com.campuslands.ong.repositories.entities.SedeEntity;
+import com.campuslands.ong.dto.SedeDTO;
 
 public interface SedeService {
 
-    List<SedeEntity> findAll();
+    List<SedeDTO> findAll();
 
-    SedeEntity findById(Long id);
+    SedeDTO findById(Long id);
 
-    SedeEntity save(SedeEntity sede);
+    SedeDTO save(SedeDTO sede);
 
-    SedeEntity update(Long id, SedeEntity sede);
+    SedeDTO update(Long id, SedeDTO sede);
 
     void delete(Long id);
 }

@@ -2,17 +2,17 @@ package com.campuslands.ong.services;
 
 import java.util.List;
 
-import com.campuslands.ong.repositories.entities.EnvioEntity;
+import com.campuslands.ong.dto.EnvioDTO;
 
 public interface EnvioService {
     
-    List<EnvioEntity> findAll();
+    List<EnvioDTO> findAll();
 
-    EnvioEntity findById(Long id);
+    EnvioDTO findById(Long id);
 
-    EnvioEntity save(EnvioEntity envio);
+    EnvioDTO save(EnvioDTO envio);
 
-    EnvioEntity update(Long id, EnvioEntity envio);
+    EnvioDTO update(Long id, EnvioDTO envio);
 
     void delete(Long id);
 }

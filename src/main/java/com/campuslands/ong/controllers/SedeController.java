@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.campuslands.ong.repositories.entities.SedeEntity;
+import com.campuslands.ong.dto.SedeDTO;
 import com.campuslands.ong.services.SedeService;
 
 import lombok.AllArgsConstructor;
@@ -25,7 +25,7 @@ public class SedeController {
     private SedeService sedeService;
 
     @GetMapping("/")
-    public ResponseEntity<List<SedeEntity>> findAll() {
+    public ResponseEntity<List<SedeDTO>> findAll() {
         return ResponseEntity.ok(sedeService.findAll());
     }
 
@@ -39,7 +39,7 @@ public class SedeController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Object> save(@RequestBody SedeEntity sede){
+    public ResponseEntity<Object> save(@RequestBody SedeDTO sede){
         try{
             return ResponseEntity.ok(sedeService.save(sede));
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class SedeController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody SedeEntity sede){
+    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody SedeDTO sede){
         try {
             return ResponseEntity.ok(sedeService.update(id, sede));
             

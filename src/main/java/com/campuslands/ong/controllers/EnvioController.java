@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.campuslands.ong.repositories.entities.EnvioEntity;
+import com.campuslands.ong.dto.EnvioDTO;
 import com.campuslands.ong.services.EnvioService;
 
 import lombok.AllArgsConstructor;
@@ -25,7 +25,7 @@ public class EnvioController {
     private EnvioService envioService;
 
     @GetMapping("/")
-    public ResponseEntity<List<EnvioEntity>> findAll() {
+    public ResponseEntity<List<EnvioDTO>> findAll() {
         return ResponseEntity.ok(envioService.findAll());
     }
 
@@ -39,7 +39,7 @@ public class EnvioController {
     }
 
     @PostMapping("/")
-    public ResponseEntity<Object> save(@RequestBody EnvioEntity envio){
+    public ResponseEntity<Object> save(@RequestBody EnvioDTO envio){
         try{
             return ResponseEntity.ok(envioService.save(envio));
         } catch (Exception e) {
@@ -48,7 +48,7 @@ public class EnvioController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody EnvioEntity envio){
+    public ResponseEntity<Object> update(@PathVariable Long id, @RequestBody EnvioDTO envio){
         try {
             return ResponseEntity.ok(envioService.update(id, envio));
             

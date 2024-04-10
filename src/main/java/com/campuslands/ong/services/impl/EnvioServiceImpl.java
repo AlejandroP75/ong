@@ -2,10 +2,13 @@ package com.campuslands.ong.services.impl;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.campuslands.ong.config.EnvioDTOConverter;
+import com.campuslands.ong.dto.EnvioDTO;
 import com.campuslands.ong.repositories.EnvioRepository;
 import com.campuslands.ong.repositories.entities.EnvioEntity;
 import com.campuslands.ong.services.EnvioService;
@@ -16,43 +19,50 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class EnvioServiceImpl implements EnvioService{
 
-    private EnvioRepository envioRepository;
+    private final EnvioRepository envioRepository;
+    private final EnvioDTOConverter envioDTOConverter;
 
     @Override
     @Transactional(readOnly = true)
-    public List<EnvioEntity> findAll() {
-        return (List<EnvioEntity>) envioRepository.findAll();
+    public List<EnvioDTO> findAll() {
+        List<EnvioEntity> envioEntities = (List<EnvioEntity>) envioRepository.findAll();
+        return envioEntities.stream()
+                .map(envioDTOConverter::convertToDTO)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public EnvioEntity findById(Long id) {
-        return envioRepository.findById(id).orElse(null);
+    @Transactional(readOnly = true)
+    public EnvioDTO findById(Long id) {
+        EnvioEntity envioEntity = envioRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Envio not found with id: " + id));
+        return envioDTOConverter.convertToDTO(envioEntity);
     }
 
     @Override
-    public EnvioEntity save(EnvioEntity envio) {
-        return envioRepository.save(envio);
+    public EnvioDTO save(EnvioDTO envioDTO) {
+        EnvioEntity envioEntity = envioDTOConverter.convertToEntity(envioDTO);
+        EnvioEntity savedEnvioEntity = envioRepository.save(envioEntity);
+        return envioDTOConverter.convertToDTO(savedEnvioEntity);
     }
 
     @Override
-    public EnvioEntity update(Long id, EnvioEntity envio) {
-        Optional<EnvioEntity> envioCurrentOptional=envioRepository.findById(id);
+    public EnvioDTO update(Long id, EnvioDTO envioDTO) {
+        Optional<EnvioEntity> existingEnvioOptional = envioRepository.findById(id);
 
-        if(envioCurrentOptional.isPresent()){
-            EnvioEntity envioCurrent=envioCurrentOptional.get();
-            envioCurrent.setFecha_inicio(envio.getFecha_inicio());
-            envioRepository.save(envioCurrent);
-            return envioCurrent;         
+        if (existingEnvioOptional.isPresent()) {
+            EnvioEntity existingEnvioEntity = existingEnvioOptional.get();
+            existingEnvioEntity.setFecha_inicio(envioDTO.getFechaInicio());
+            EnvioEntity updatedEnvioEntity = envioRepository.save(existingEnvioEntity);
+            return envioDTOConverter.convertToDTO(updatedEnvioEntity);
+        } else {
+            throw new RuntimeException("Envio not found with id: " + id);
         }
- 
-        return null;
     }
 
     @Override
     public void delete(Long id) {
-        Optional<EnvioEntity> socioOptinal=envioRepository.findById(id);
-        if(socioOptinal.isPresent()){
-            envioRepository.delete(socioOptinal.get());
-        }   
+        Optional<EnvioEntity> envioOptional = envioRepository.findById(id);
+        envioOptional.ifPresent(envioRepository::delete);
     }
 }

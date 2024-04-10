@@ -2,15 +2,15 @@ package com.campuslands.ong.services;
 
 import java.util.List;
 
-import com.campuslands.ong.repositories.entities.VoluntarioEntity;
+import com.campuslands.ong.dto.VoluntarioDTO;
 
 public interface VoluntarioService {
     
-    List<VoluntarioEntity> findAll();
+    List<VoluntarioDTO> findAll();
 
-    VoluntarioEntity findById(Long id);
+    VoluntarioDTO findById(Long id);
 
-    VoluntarioEntity save(VoluntarioEntity voluntario);
+    VoluntarioDTO save(VoluntarioDTO voluntario);
 
     void delete(Long id);
 }
